@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>El Despertar de Tu Grandeza - Carlos Díaz | Transforma Tu Vida Hoy</title>
+<meta name="description" content="Descubre el poder de reconstruirte, creer en ti y conquistar una vida extraordinaria. 19 capítulos de transformación profunda por Carlos Díaz.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#d4af37;--gold-light:#f0d76f;--gold-dark:#b8962e;--dark:#0a0e12;--dark-blue:#0f1923;--dark-card:#141c28;--white:#ffffff;--gray:#a0aec0;--red:#e53e3e;--green:#38a169}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Playfair Display',serif}
+
+/* NOTIFICATION BAR */
+.notif-bar{background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));color:var(--dark);padding:10px 16px;text-align:center;font-size:13px;font-weight:700;position:fixed;top:0;left:0;right:0;z-index:9999;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;animation:shimmer 3s ease infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.notif-bar span{color:var(--red);font-weight:800}
+.pulse-dot{display:inline-block;width:8px;height:8px;background:var(--red);border-radius:50%;margin-right:6px;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+/* HERO */
+.hero{min-height:100vh;padding:100px 24px 60px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 30% 50%,rgba(212,175,55,.08),transparent 60%),radial-gradient(ellipse at 70% 20%,rgba(15,25,35,.9),transparent),var(--dark);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(212,175,55,.03) 1px,transparent 1px);background-size:60px 60px;animation:drift 60s linear infinite}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(60px,60px)}}
+.hero-inner{max-width:1200px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);border-radius:40px;padding:8px 20px;font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:24px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.1;margin-bottom:20px;font-weight:800}
+.hero h1 .gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:1.1rem;color:var(--gray);line-height:1.7;margin-bottom:32px;max-width:520px}
+.hero-checks{display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+.hero-check{display:flex;align-items:center;gap:10px;font-size:15px;color:#e0e0e0}
+.hero-check i{color:var(--gold);font-size:16px}
+
+/* PRICING */
+.price-box{background:linear-gradient(135deg,rgba(212,175,55,.1),rgba(212,175,55,.03));border:1px solid rgba(212,175,55,.25);border-radius:16px;padding:24px 28px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.price-old{font-size:1.8rem;text-decoration:line-through;color:#666;font-weight:700}
+.price-arrow{color:var(--gold);font-size:1.2rem}
+.price-new-wrap{position:relative}
+.price-badge{position:absolute;top:-14px;right:-10px;background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;animation:bounceIn .6s ease}
+@keyframes bounceIn{0%{transform:scale(0)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+.price-new{font-size:3rem;font-weight:900;color:var(--gold);font-family:'Playfair Display',serif}
+.price-details{font-size:12px;color:var(--gray);margin-top:4px}
+
+/* COUNTDOWN */
+.countdown-wrap{margin-bottom:28px}
+.countdown-label{font-size:13px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.countdown{display:flex;gap:10px}
+.cd-item{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.2);border-radius:10px;padding:10px 14px;text-align:center;min-width:60px}
+.cd-num{font-size:1.6rem;font-weight:800;color:var(--gold);font-family:'Playfair Display',serif}
+.cd-txt{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+
+/* CTA */
+.cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);font-size:1.1rem;font-weight:800;padding:18px 40px;border-radius:60px;text-decoration:none;text-transform:uppercase;letter-spacing:1px;transition:all .3s;box-shadow:0 8px 30px rgba(212,175,55,.3);cursor:pointer;border:none;width:100%;max-width:420px;text-align:center}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(212,175,55,.5)}
+.cta-sub{font-size:12px;color:var(--gray);margin-top:10px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.cta-sub i{color:var(--green)}
+
+/* BOOK */
+.book-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+.book-img{width:100%;max-width:380px;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 60px rgba(212,175,55,.15);animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+.book-glow{position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(212,175,55,.2),transparent 70%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(40px);z-index:-1}
+
+/* SOCIAL PROOF BAR */
+.sp-bar{background:var(--dark-card);border-top:1px solid rgba(212,175,55,.1);border-bottom:1px solid rgba(212,175,55,.1);padding:30px 24px;text-align:center}
+.sp-bar .inner{max-width:900px;margin:0 auto;display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.sp-item{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600}
+.sp-item i{color:var(--gold);font-size:20px}
+.sp-item .num{color:var(--gold);font-weight:800;font-size:1.2rem}
+
+/* SECTIONS */
+.section{padding:80px 24px}
+.section-dark{background:var(--dark-blue)}
+.container{max-width:1100px;margin:0 auto}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);text-align:center;margin-bottom:16px;font-weight:800}
+.sec-title .gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sec-sub{text-align:center;color:var(--gray);font-size:1rem;max-width:600px;margin:0 auto 50px;line-height:1.7}
+
+/* PAIN POINTS */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.pain-card{background:rgba(229,62,62,.05);border:1px solid rgba(229,62,62,.15);border-radius:16px;padding:28px;transition:all .3s}
+.pain-card:hover{transform:translateY(-4px);border-color:rgba(229,62,62,.3)}
+.pain-icon{width:50px;height:50px;border-radius:12px;background:rgba(229,62,62,.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px;color:var(--red)}
+.pain-card h4{font-size:1.1rem;margin-bottom:8px;font-weight:700}
+.pain-card p{color:var(--gray);font-size:14px;line-height:1.6}
+
+/* BENEFITS */
+.ben-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.ben-card{background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.12);border-radius:16px;padding:28px;transition:all .3s}
+.ben-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.3);background:rgba(212,175,55,.08)}
+.ben-icon{width:50px;height:50px;border-radius:12px;background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px;color:var(--gold)}
+.ben-card h4{font-size:1.1rem;margin-bottom:8px;font-weight:700}
+.ben-card p{color:var(--gray);font-size:14px;line-height:1.6}
+
+/* CHAPTERS */
+.ch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.ch-card{display:flex;gap:16px;padding:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;transition:all .3s}
+.ch-card:hover{background:rgba(212,175,55,.06);border-color:rgba(212,175,55,.15)}
+.ch-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--gold);opacity:.6;min-width:36px}
+.ch-card h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.ch-card p{font-size:13px;color:var(--gray);line-height:1.5}
+
+/* TESTIMONIALS */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.test-card{background:var(--dark-card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px;position:relative}
+.test-stars{color:var(--gold);margin-bottom:12px;font-size:14px}
+.test-text{font-size:15px;line-height:1.7;color:#ddd;margin-bottom:16px;font-style:italic}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:var(--dark)}
+.test-name{font-weight:700;font-size:14px}
+.test-role{font-size:12px;color:var(--gray)}
+.test-badge{position:absolute;top:16px;right:16px;background:rgba(56,161,105,.1);color:var(--green);font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:4px}
+
+/* AUTHOR */
+.author-sec{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+.author-img{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:3rem;font-weight:800;color:var(--dark)}
+.author-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:8px}
+.author-title{color:var(--gold);font-size:14px;font-weight:600;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.author-bio{color:var(--gray);line-height:1.8;font-size:15px}
+
+/* GUARANTEE */
+.guarantee{background:linear-gradient(135deg,rgba(56,161,105,.08),rgba(56,161,105,.02));border:2px solid rgba(56,161,105,.2);border-radius:20px;padding:40px;text-align:center;max-width:700px;margin:0 auto}
+.guarantee-icon{font-size:3rem;color:var(--green);margin-bottom:16px}
+.guarantee h3{font-size:1.4rem;margin-bottom:12px;font-weight:800}
+.guarantee p{color:var(--gray);line-height:1.7;font-size:15px}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid rgba(255,255,255,.08);padding:20px 0}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q i{color:var(--gold);transition:transform .3s}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--gray);line-height:1.7;font-size:14px}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+
+/* FINAL CTA */
+.final-cta{text-align:center;background:radial-gradient(ellipse at center,rgba(212,175,55,.1),transparent 70%);padding:80px 24px}
+.final-cta h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:16px;font-weight:800}
+.final-cta p{color:var(--gray);max-width:600px;margin:0 auto 40px;line-height:1.7}
+
+/* FLOATING CTA */
+.float-cta{position:fixed;bottom:0;left:0;right:0;background:rgba(10,14,18,.95);backdrop-filter:blur(10px);padding:12px 24px;display:flex;justify-content:center;align-items:center;gap:20px;z-index:9998;border-top:1px solid rgba(212,175,55,.2);transform:translateY(100%);transition:transform .3s}
+.float-cta.show{transform:translateY(0)}
+.float-price{font-size:12px;color:var(--gray)}
+.float-price strong{color:var(--gold);font-size:1.4rem;font-family:'Playfair Display',serif}
+.float-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);font-weight:800;padding:12px 28px;border-radius:40px;text-decoration:none;font-size:14px;transition:all .3s;white-space:nowrap}
+.float-btn:hover{transform:scale(1.05)}
+
+/* FOOTER */
+footer{background:var(--dark-card);padding:40px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+footer p{color:var(--gray);font-size:13px;line-height:1.8}
+
+/* POPUP */
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:99999;display:none;align-items:center;justify-content:center;padding:24px}
+.popup-overlay.show{display:flex}
+.popup{background:var(--dark-card);border:1px solid rgba(212,175,55,.2);border-radius:20px;padding:40px 32px;max-width:440px;width:100%;text-align:center;position:relative;animation:popIn .4s ease}
+@keyframes popIn{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+.popup-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--gray);font-size:20px;cursor:pointer}
+.popup h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:8px}
+.popup p{color:var(--gray);font-size:14px;margin-bottom:20px;line-height:1.6}
+.popup .cta-btn{font-size:.95rem;padding:14px 28px}
+
+/* LIVE NOTIFICATION */
+.live-notif{position:fixed;bottom:80px;left:20px;background:var(--dark-card);border:1px solid rgba(212,175,55,.15);border-radius:12px;padding:14px 20px;z-index:9997;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateX(-120%);transition:transform .4s ease;max-width:320px}
+.live-notif.show{transform:translateX(0)}
+.live-notif img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.live-notif-text{font-size:13px;line-height:1.4}
+.live-notif-text strong{color:var(--gold)}
+.live-notif-time{font-size:11px;color:var(--gray)}
+
+@media(max-width:768px){
+.hero-inner{grid-template-columns:1fr;text-align:center}
+.hero-checks{align-items:center}
+.book-wrap{order:-1}
+.book-img{max-width:260px}
+.price-box{justify-content:center}
+.sp-bar .inner{gap:20px}
+.author-sec{grid-template-columns:1fr;text-align:center;justify-items:center}
+.float-price{display:none}
+.cta-btn{font-size:.95rem;padding:16px 24px}
+.notif-bar{font-size:11px;gap:12px;padding:8px 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- NOTIFICATION BAR -->
+<div class="notif-bar">
+<div><span class="pulse-dot"></span><span id="viewers">1,247</span> personas viendo esta oferta</div>
+<div><i class="fas fa-fire"></i> Solo quedan <span id="slots">17 cupos</span> a este precio</div>
+<div><i class="fas fa-clock"></i> Vence en <span id="topTimer">23:59:59</span></div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+<div>
+<div class="hero-badge"><i class="fas fa-fire"></i> OFERTA DE LANZAMIENTO</div>
+<h1>El <span class="gold">Despertar</span> de Tu <span class="gold">Grandeza</span></h1>
+<p class="hero-sub">El poder de reconstruirte, creer en ti y conquistar una vida extraordinaria. <strong>19 capítulos</strong> que destruirán tus límites mentales y te convertirán en la persona más poderosa que puedas imaginar.</p>
+
+<div class="hero-checks">
+<div class="hero-check"><i class="fas fa-check-circle"></i> 19 capítulos de transformación profunda</div>
+<div class="hero-check"><i class="fas fa-check-circle"></i> Ejercicios prácticos al final de cada capítulo</div>
+<div class="hero-check"><i class="fas fa-check-circle"></i> Acceso digital inmediato (PDF)</div>
+<div class="hero-check"><i class="fas fa-check-circle"></i> Garantía total de 30 días</div>
+</div>
+
+<div class="price-box">
+<div class="price-old">$39.99</div>
+<div class="price-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="price-new-wrap">
+<div class="price-badge">-87% HOY</div>
+<div class="price-new">$5</div>
+</div>
+<div class="price-details">Pago único · Sin suscripciones · Acceso de por vida</div>
+</div>
+
+<div class="countdown-wrap">
+<div class="countdown-label"><i class="fas fa-bolt"></i> OFERTA ESPECIAL VENCE EN:</div>
+<div class="countdown">
+<div class="cd-item"><div class="cd-num" id="d">00</div><div class="cd-txt">Días</div></div>
+<div class="cd-item"><div class="cd-num" id="h">00</div><div class="cd-txt">Horas</div></div>
+<div class="cd-item"><div class="cd-num" id="m">00</div><div class="cd-txt">Min</div></div>
+<div class="cd-item"><div class="cd-num" id="s">00</div><div class="cd-txt">Seg</div></div>
+</div>
+</div>
+
+<a href="#comprar" class="cta-btn" onclick="handleBuy()">🚀 QUIERO TRANSFORMAR MI VIDA — $5</a>
+<div class="cta-sub">
+<span><i class="fas fa-shield-alt"></i> Pago seguro</span>
+<span><i class="fas fa-undo"></i> 7 días garantía Hotmart</span>
+<span><i class="fas fa-bolt"></i> Acceso inmediato</span>
+</div>
+</div>
+
+<div class="book-wrap">
+<div class="book-glow"></div>
+<img class="book-img" src="https://media.base44.com/images/public/user_69a5d89606892cf87497a255/fa6b11556_book_cover.png" alt="El Despertar de Tu Grandeza - Carlos Díaz">
+</div>
+</div>
+</section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="sp-bar">
+<div class="inner">
+<div class="sp-item"><i class="fas fa-book-open"></i><span class="num">19</span> Capítulos</div>
+<div class="sp-item"><i class="fas fa-shield-alt"></i><span class="num">7 días</span> Garantía</div>
+<div class="sp-item"><i class="fas fa-bolt"></i><span class="num">Acceso</span> Inmediato</div>
+<div class="sp-item"><i class="fas fa-infinity"></i><span class="num">Vitalicio</span> Acceso</div>
+</div>
+</div>
+
+<!-- PAIN POINTS -->
+<section class="section section-dark">
+<div class="container">
+<h2 class="sec-title">¿Te Identificas Con <span class="gold">Algo de Esto</span>?</h2>
+<p class="sec-sub">Si al menos una de estas situaciones resuena contigo, este libro fue escrito para ti.</p>
+<div class="pain-grid">
+<div class="pain-card"><div class="pain-icon"><i class="fas fa-chain-broken"></i></div><h4>Sientes que no eres suficiente</h4><p>Te comparas constantemente con otros y sientes que nunca alcanzas tus propias expectativas, viviendo en una prisión de inseguridad.</p></div>
+<div class="pain-card"><div class="pain-icon"><i class="fas fa-brain"></i></div><h4>Tu mente te sabotea</h4><p>Postergas tus sueños, dudas de cada decisión y el miedo al fracaso te paraliza impidiéndote avanzar.</p></div>
+<div class="pain-card"><div class="pain-icon"><i class="fas fa-heart-crack"></i></div><h4>Relaciones que te destruyen</h4><p>Estás rodeado de personas que drenan tu energía, critican tu crecimiento y minimizan tus sueños.</p></div>
+<div class="pain-card"><div class="pain-icon"><i class="fas fa-compass"></i></div><h4>Sin propósito ni dirección</h4><p>Sientes un vacío interno, como si la vida no tuviera sentido. Trabajas pero no vives. Sobrevives pero no prosperas.</p></div>
+<div class="pain-card"><div class="pain-icon"><i class="fas fa-mask"></i></div><h4>Vives detrás de una máscara</h4><p>Aparentas fortaleza pero por dentro estás destruyéndote con pensamientos negativos y autocrítica constante.</p></div>
+<div class="pain-card"><div class="pain-icon"><i class="fas fa-bed"></i></div><h4>Falta de disciplina</h4><p>Comienzas proyectos con entusiasmo pero los abandonas rápidamente. Dependes de la motivación que nunca es constante.</p></div>
+</div>
+</div>
+</section>
+
+<!-- SOLUTION / BENEFITS -->
+<section class="section">
+<div class="container">
+<h2 class="sec-title">Lo Que <span class="gold">Descubrirás</span> en Este Libro</h2>
+<p class="sec-sub">Cada capítulo está diseñado con estrategias comprobadas y ejercicios prácticos que transformarán tu vida desde adentro.</p>
+<div class="ben-grid">
+<div class="ben-card"><div class="ben-icon"><i class="fas fa-brain"></i></div><h4>Domina Tu Mente</h4><p>Aprende a controlar tus pensamientos, romper creencias limitantes y construir una mentalidad de éxito inquebrantable.</p></div>
+<div class="ben-card"><div class="ben-icon"><i class="fas fa-heart"></i></div><h4>Sana Tu Autoestima</h4><p>Reconstruye tu identidad, deja de buscar validación externa y descubre tu valor real como ser humano.</p></div>
+<div class="ben-card"><div class="ben-icon"><i class="fas fa-fire"></i></div><h4>Disciplina Silenciosa</h4><p>Crea hábitos poderosos que funcionen sin motivación. Construye resultados extraordinarios paso a paso.</p></div>
+<div class="ben-card"><div class="ben-icon"><i class="fas fa-mountain"></i></div><h4>Resiliencia Total</h4><p>Conviértete en alguien imposible de destruir. Aprende el arte de levantarte más fuerte después de cada caída.</p></div>
+<div class="ben-card"><div class="ben-icon"><i class="fas fa-users"></i></div><h4>Construye Tu Tribu</h4><p>Identifica relaciones tóxicas y construye un círculo de personas que impulsen tu crecimiento y celebren tu éxito.</p></div>
+<div class="ben-card"><div class="ben-icon"><i class="fas fa-gem"></i></div><h4>Legado y Propósito</h4><p>Descubre tu misión de vida, crea una visión poderosa y deja una huella que trascienda generaciones.</p></div>
+</div>
+</div>
+</section>
+
+<!-- CHAPTERS -->
+<section class="section section-dark">
+<div class="container">
+<h2 class="sec-title">19 Capítulos de <span class="gold">Transformación</span></h2>
+<p class="sec-sub">Un viaje completo desde el autodescubrimiento hasta la integración total de tu grandeza.</p>
+<div class="ch-grid">
+<div class="ch-card"><div class="ch-num">01</div><div><h4>El día que dejaste de creer en ti</h4><p>Descubre cuándo perdiste la fe en ti mismo y cómo recuperarla.</p></div></div>
+<div class="ch-card"><div class="ch-num">02</div><div><h4>Las cadenas invisibles</h4><p>Identifica las creencias limitantes que destruyen tu potencial.</p></div></div>
+<div class="ch-card"><div class="ch-num">03</div><div><h4>La batalla mental</h4><p>Domina tu mente antes de que ella te domine a ti.</p></div></div>
+<div class="ch-card"><div class="ch-num">04</div><div><h4>Disciplina silenciosa</h4><p>Construye hábitos que transformen tu vida sin depender de motivación.</p></div></div>
+<div class="ch-card"><div class="ch-num">05</div><div><h4>Sana tu autoestima</h4><p>Reconstruye tu identidad y tu relación contigo mismo.</p></div></div>
+<div class="ch-card"><div class="ch-num">06</div><div><h4>El miedo al fracaso</h4><p>Domina el arte de comenzar de nuevo las veces que sea necesario.</p></div></div>
+<div class="ch-card"><div class="ch-num">07</div><div><h4>Relaciones y energía</h4><p>Protege tu paz de personas que drenan tu vida.</p></div></div>
+<div class="ch-card"><div class="ch-num">08</div><div><h4>Propósito espiritual</h4><p>Encuentra el significado profundo de tu existencia.</p></div></div>
+<div class="ch-card"><div class="ch-num">09</div><div><h4>Mentalidad de éxito</h4><p>Piensa como las personas extraordinarias que admiras.</p></div></div>
+<div class="ch-card"><div class="ch-num">10</div><div><h4>Tu nueva versión</h4><p>Renace mentalmente y construye tu mejor identidad.</p></div></div>
+<div class="ch-card"><div class="ch-num">11</div><div><h4>Manifiesto final</h4><p>Nunca vuelvas a disminuirte. Declara tu grandeza.</p></div></div>
+<div class="ch-card"><div class="ch-num">12</div><div><h4>Vulnerabilidad y autenticidad</h4><p>La verdadera fortaleza de mostrarte tal como eres.</p></div></div>
+<div class="ch-card"><div class="ch-num">13</div><div><h4>Resiliencia</h4><p>El arte de levantarte más fuerte de cada adversidad.</p></div></div>
+<div class="ch-card"><div class="ch-num">14</div><div><h4>Gratitud y abundancia</h4><p>Transforma tu perspectiva de escasez a plenitud.</p></div></div>
+<div class="ch-card"><div class="ch-num">15</div><div><h4>Tu visión de vida</h4><p>Crea el mapa que te guiará hacia tu destino extraordinario.</p></div></div>
+<div class="ch-card"><div class="ch-num">16</div><div><h4>Gestión emocional</h4><p>Navega tus tormentas internas con sabiduría y calma.</p></div></div>
+<div class="ch-card"><div class="ch-num">17</div><div><h4>Tu entorno y tu tribu</h4><p>Construye un ecosistema que potencie tu crecimiento.</p></div></div>
+<div class="ch-card"><div class="ch-num">18</div><div><h4>Legado y trascendencia</h4><p>Deja una huella que inspire a futuras generaciones.</p></div></div>
+<div class="ch-card"><div class="ch-num">19</div><div><h4>Integrando tu grandeza</h4><p>Vive cada día con propósito, poder y plenitud total.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+<div class="container">
+<h2 class="sec-title">Lo Que Dicen Nuestros <span class="gold">Lectores</span></h2>
+<p class="sec-sub">Miles de personas ya transformaron su vida con este libro.</p>
+<div class="test-grid">
+<div class="test-card">
+<div class="test-badge"><i class="fas fa-check-circle"></i> Compra verificada</div>
+<div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p class="test-text">"Este libro llegó en el momento exacto. Estaba destruido emocionalmente y cada capítulo me fue reconstruyendo. Hoy soy otra persona. No exagero cuando digo que me salvó la vida."</p>
+<div class="test-author"><div class="test-avatar">M</div><div><div class="test-name">Marcos R.</div><div class="test-role">Emprendedor · México</div></div></div>
+</div>
+<div class="test-card">
+<div class="test-badge"><i class="fas fa-check-circle"></i> Compra verificada</div>
+<div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p class="test-text">"Lo leí dos veces en una semana. Los ejercicios prácticos son oro puro. Mi autoestima cambió completamente y mis relaciones mejoraron. Carlos escribe como si te conociera."</p>
+<div class="test-author"><div class="test-avatar">L</div><div><div class="test-name">Laura G.</div><div class="test-role">Coach de vida · Colombia</div></div></div>
+</div>
+<div class="test-card">
+<div class="test-badge"><i class="fas fa-check-circle"></i> Compra verificada</div>
+<div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p class="test-text">"Pensé que era solo otro libro de autoayuda. Estaba muy equivocado. Carlos va directo a la herida, te sacude y luego te muestra exactamente cómo reconstruirte. Impresionante."</p>
+<div class="test-author"><div class="test-avatar">A</div><div><div class="test-name">Andrés P.</div><div class="test-role">Ingeniero · España</div></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AUTHOR -->
+<section class="section section-dark">
+<div class="container">
+<div class="author-sec">
+<div class="author-img">CD</div>
+<div>
+<div class="author-title">Sobre el Autor</div>
+<div class="author-name serif">Carlos Díaz</div>
+<p class="author-bio">Carlos Díaz es escritor, mentor y estratega de desarrollo personal. Tras años de superar sus propias batallas internas — desde la pérdida total de autoestima hasta reconstruir su vida desde cero — decidió plasmar en estas páginas todo lo que aprendió en el camino.<br><br>Su misión es clara: <strong>despertar la grandeza que duerme dentro de cada persona</strong>. Con un estilo directo, emocional y profundamente honesto, Carlos ha impactado a miles de lectores en toda Latinoamérica y España. "El Despertar de Tu Grandeza" es su obra más poderosa y personal.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="section">
+<div class="container">
+<div class="guarantee">
+<div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
+<h3>Garantía Hotmart de 7 Días</h3>
+<p>Al comprar a través de Hotmart tienes 7 días de garantía total. Si por cualquier razón no quedas satisfecho, solicitas el reembolso directamente desde la plataforma y te devuelven el 100% de tu dinero automáticamente. Sin preguntas, sin complicaciones. Riesgo cero.</p>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-dark">
+<div class="container">
+<h2 class="sec-title">Preguntas <span class="gold">Frecuentes</span></h2>
+<div style="max-width:700px;margin:40px auto 0">
+<div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">¿En qué formato recibiré el libro? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Recibirás el libro en formato PDF de alta calidad, optimizado para leer en cualquier dispositivo: celular, tablet, computadora o e-reader. Acceso inmediato después de la compra.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo tendré acceso? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Acceso de por vida. Una vez que compras, el libro es tuyo para siempre. Puedes descargarlo y leerlo cuantas veces quieras.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Cómo funciona la garantía de 7 días? <i class="fas fa-chevron-down"></i></div><div class="faq-a">La garantía es procesada directamente por Hotmart, la plataforma de pago. Tienes 7 días desde tu compra para solicitar el reembolso desde tu cuenta de Hotmart. El proceso es 100% automático y sin preguntas.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Este libro es para mí? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Si sientes que no estás viviendo a tu máximo potencial, si luchas con la autoestima, el miedo o la falta de dirección, este libro fue escrito específicamente para ti. No importa tu edad, profesión o situación actual.</div></div>
+<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Por qué está a solo $5? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Porque la misión de Carlos Díaz es que este conocimiento llegue al mayor número de personas posible. Este precio de lanzamiento de $5 es por cupos limitados y tiempo limitado. Una vez agotados los cupos, el precio volverá a $39.99.</div></div>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="comprar">
+<h2 class="serif">Tu <span class="gold">Transformación</span> Comienza Ahora</h2>
+<p>No dejes que el miedo decida por ti un día más. Cada momento que postergas es un día menos viviendo tu verdadera grandeza. Hoy es el día.</p>
+
+<div style="max-width:500px;margin:0 auto">
+<div class="price-box" style="justify-content:center;margin-bottom:20px">
+<div class="price-old">$39.99</div>
+<div class="price-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="price-new-wrap">
+<div class="price-badge">-87%</div>
+<div class="price-new">$5</div>
+</div>
+</div>
+
+<a href="#" class="cta-btn" onclick="handleBuy()" style="margin:0 auto;display:flex">🔥 SÍ, QUIERO DESPERTAR MI GRANDEZA</a>
+<div class="cta-sub" style="justify-content:center;margin-top:12px">
+<span><i class="fas fa-shield-alt"></i> Pago 100% seguro</span>
+<span><i class="fas fa-undo"></i> 7 días garantía Hotmart</span>
+</div>
+<p style="color:#666;font-size:12px;margin-top:16px">* Oferta válida solo por tiempo limitado. El precio puede aumentar sin previo aviso.</p>
+</div>
+</section>
+
+<!-- FLOATING CTA -->
+<div class="float-cta" id="floatCta">
+<div class="float-price">Oferta: <del style="color:#666">$39.99</del> <strong>$5</strong></div>
+<a href="#comprar" class="float-btn" onclick="handleBuy()">🚀 COMPRAR AHORA</a>
+</div>
+
+<!-- LIVE NOTIFICATION -->
+<div class="live-notif" id="liveNotif">
+<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--dark);font-size:14px;flex-shrink:0" id="notifAvatar">M</div>
+<div class="live-notif-text">
+<span id="notifText"><strong>Marcos de México</strong> acaba de comprar el libro</span><br>
+<span class="live-notif-time" id="notifTime">Hace 2 minutos</span>
+</div>
+</div>
+
+<!-- EXIT POPUP -->
+<div class="popup-overlay" id="exitPopup">
+<div class="popup">
+<button class="popup-close" onclick="closePopup()"><i class="fas fa-times"></i></button>
+<div style="font-size:3rem;margin-bottom:12px">⚠️</div>
+<h3 class="serif">¡Espera! No Te Vayas Sin Tu Descuento</h3>
+<p>Esta oferta de <strong style="color:var(--gold)">$5 (87% de descuento)</strong> está a punto de expirar. Miles de personas ya cambiaron su vida con este libro. ¿Tú te lo vas a perder?</p>
+<a href="#comprar" class="cta-btn" onclick="closePopup()" style="margin:0 auto">🎁 QUIERO MI DESCUENTO</a>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Carlos Díaz · Todos los derechos reservados<br>El Despertar de Tu Grandeza — Primera Edición<br><br>
+<a href="#" style="color:var(--gold);text-decoration:none">Términos y Condiciones</a> · <a href="#" style="color:var(--gold);text-decoration:none">Política de Privacidad</a> · <a href="#" style="color:var(--gold);text-decoration:none">Contacto</a></p>
+</footer>
+
+<script>
+// COUNTDOWN
+function startCountdown(){
+const end=new Date();end.setHours(end.getHours()+23);end.setMinutes(end.getMinutes()+59);
+const stored=localStorage.getItem('cdEnd');
+const target=stored?new Date(stored):(localStorage.setItem('cdEnd',end.toISOString()),end);
+setInterval(()=>{
+const now=new Date();const diff=target-now;
+if(diff<=0){document.getElementById('d').textContent='00';document.getElementById('h').textContent='00';document.getElementById('m').textContent='00';document.getElementById('s').textContent='00';return}
+const dd=Math.floor(diff/86400000);const hh=Math.floor((diff%86400000)/3600000);const mm=Math.floor((diff%3600000)/60000);const ss=Math.floor((diff%60000)/1000);
+document.getElementById('d').textContent=String(dd).padStart(2,'0');
+document.getElementById('h').textContent=String(hh).padStart(2,'0');
+document.getElementById('m').textContent=String(mm).padStart(2,'0');
+document.getElementById('s').textContent=String(ss).padStart(2,'0');
+document.getElementById('topTimer').textContent=String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0')+':'+String(ss).padStart(2,'0');
+},1000)}
+startCountdown();
+
+// FLOATING CTA
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+const el=document.getElementById('floatCta');
+if(window.scrollY>600)el.classList.add('show');else el.classList.remove('show');
+});
+
+// FAQ
+function toggleFaq(el){
+const item=el.parentElement;
+document.querySelectorAll('.faq-item').forEach(i=>{if(i!==item)i.classList.remove('open')});
+item.classList.toggle('open');
+}
+
+// LIVE NOTIFICATIONS
+const buyers=[
+{name:'Marcos',loc:'México',avatar:'M'},{name:'Laura',loc:'Colombia',avatar:'L'},
+{name:'Andrés',loc:'España',avatar:'A'},{name:'María',loc:'Argentina',avatar:'M'},
+{name:'José',loc:'Perú',avatar:'J'},{name:'Carmen',loc:'Chile',avatar:'C'},
+{name:'Roberto',loc:'Ecuador',avatar:'R'},{name:'Ana',loc:'Venezuela',avatar:'A'},
+{name:'Diego',loc:'Rep. Dominicana',avatar:'D'},{name:'Patricia',loc:'Costa Rica',avatar:'P'},
+{name:'Valentina',loc:'Uruguay',avatar:'V'},{name:'Fernando',loc:'Guatemala',avatar:'F'}
+];
+const times=['Hace 1 minuto','Hace 2 minutos','Hace 5 minutos','Hace 8 minutos','Hace 12 minutos'];
+function showNotif(){
+const b=buyers[Math.floor(Math.random()*buyers.length)];
+const t=times[Math.floor(Math.random()*times.length)];
+document.getElementById('notifAvatar').textContent=b.avatar;
+document.getElementById('notifText').innerHTML='<strong>'+b.name+' de '+b.loc+'</strong> acaba de comprar el libro';
+document.getElementById('notifTime').textContent=t;
+const el=document.getElementById('liveNotif');
+el.classList.add('show');
+setTimeout(()=>el.classList.remove('show'),4000);
+}
+setTimeout(()=>{showNotif();setInterval(showNotif,15000+Math.random()*10000)},5000);
+
+// VIEWER COUNT
+setInterval(()=>{
+const v=document.getElementById('viewers');
+let n=parseInt(v.textContent.replace(/,/g,''));
+n+=Math.floor(Math.random()*7)-3;
+if(n<800)n=800;
+v.textContent=n.toLocaleString();
+},8000);
+
+// SLOTS
+setInterval(()=>{
+const s=document.getElementById('slots');
+let n=parseInt(s.textContent);
+if(Math.random()>.6)n--;
+if(n<5)n=5;
+s.textContent=n+' cupos';
+},30000);
+
+// EXIT POPUP
+let popShown=false;
+document.addEventListener('mouseleave',(e)=>{
+if(e.clientY<0&&!popShown){popShown=true;document.getElementById('exitPopup').classList.add('show')}
+});
+function closePopup(){document.getElementById('exitPopup').classList.remove('show')}
+
+// BUY
+function handleBuy(){alert('¡Redirigiendo a la plataforma de pago! Aquí debes colocar tu enlace de Hotmart, Gumroad u otra plataforma.')}
+
+// SCROLL ANIMATIONS
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)'}})
+},{threshold:0.1});
+document.querySelectorAll('.pain-card,.ben-card,.ch-card,.test-card').forEach(el=>{
+el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='all .6s ease';
+observer.observe(el);
+});
+</script>
+</body>
+</html>
